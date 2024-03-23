@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { RouterProvider } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import Router from "../src/Navigation";
+import { ApiUrl } from "./Constants";
+import { AuthContext } from "./Context/AuthContext";
+import { apiCall } from "./Utilites/Api";
 
 function App() {
+  const [accessToken, setAccessToken] = useState(
+    localStorage.getItem("accessToken")
+  );
+
+  const doLogin = async (payload) => {
+    // const accessToken = 'dwedewdwedewdwedewdn';
+    // localStorage.setItem("accessToken", accessToken);
+    // setAccessToken(accessToken);
+    // toast.success('Login success');
+
+    const resp = await apiCall(ApiUrl.login, payload);
+    if (resp.status) {
+      const accessToken = resp.data.token;
+      localStorage.setItem("accessToken", accessToken);
+      setAccessToken(accessToken);
+      toast.success(resp.message);
+    } else {
+      toast.error(resp.message);
+    }
+  };
+
+  const doLogout = async () => {
+    localStorage.removeItem("accessToken", accessToken);
+    setAccessToken(null);
+    // const resp = await apiCall(ApiUrl.logout,{});
+    // console.log(resp);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider value={{ accessToken, doLogin, doLogout }}>
+      <RouterProvider router={Router} />
+      <ToastContainer />
+    </AuthContext.Provider>
   );
 }
 
