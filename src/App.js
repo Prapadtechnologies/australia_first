@@ -4,7 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Router from "../src/Navigation";
-import { ApiUrl } from "./Constants";
+import { ApiUrl } from "./Constants/Api";
 import { AuthContext } from "./Context/AuthContext";
 import { apiCall } from "./Utilites/Api";
 

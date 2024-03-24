@@ -37,15 +37,15 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex flex-row bg-primary">
+      <div className="flex flex-row bg-white">
         <div className="w-3/5 flex items-start">
           <img
             src={loginBg}
             alt="Login background image"
-            className="w-full object-cover h-screen"
+            className="w-full object-contain h-screen"
           />
         </div>
-        <div className="flex flex-col justify-center items-center w-2/5">
+        <div className="flex flex-col justify-center items-center bg-primary w-2/5">
           <p className="font-pop text-4xl font-bold text-white text-center my-1">
             Welcome Back!
           </p>

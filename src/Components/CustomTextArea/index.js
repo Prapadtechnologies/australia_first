@@ -2,7 +2,7 @@ import React from "react";
 import { useField } from "formik";
 
 const CustomTextArea = (props) => {
-  const { placeholder, className } = props;
+  const { placeholder, className, disabled } = props;
   const [field, meta] = useField(props);
 
   return (
@@ -10,6 +10,7 @@ const CustomTextArea = (props) => {
       <textarea
         {...field}
         {...props}
+        disabled={disabled}
         className={`border rounded-lg placeholder-placeholderColor font-pop text-xs ${className ? className : 'w-72 p-4  border-secondary '}`}
         placeholder={placeholder}
       ></textarea>

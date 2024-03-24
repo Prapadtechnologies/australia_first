@@ -5,8 +5,6 @@
 
 .customModal {
     background: #b2dbbf;
-    max-width: 300px;
-    width: 100%;
   }
 
 input[type="radio"] + label span {
@@ -26,4 +24,14 @@ box-shadow: 0px 0px 0px 2px white inset;
 
 input[type="radio"]:checked + label{
  color: #1F9D55; 
+}
+
+#start_date > div {
+  position: relative !important;
+}
+#end_date > div {
+  position: relative !important;
+}
+.customLoader{
+  background-color: white;
 }

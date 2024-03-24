@@ -4,9 +4,9 @@ import { Modal } from 'react-responsive-modal';
 import { root } from "postcss";
 
 const CustomModal = (props) => {
-    const { handleModalClose, modalProps  } = props;
+    const { handleModalClose, modalProps, className  } = props;
     return(
-    <Modal classNames={{ modal:'customModal'}} open={modalProps.visible} onClose={handleModalClose} center showCloseIcon={false}>
+    <Modal classNames={{ modal:`customModal ${className}`}} open={modalProps.visible} onClose={handleModalClose} center showCloseIcon={false}>
         {props.children}
     </Modal>
     )

@@ -2,7 +2,7 @@ import React from "react";
 import { useField } from "formik";
 
 const TextInput = (props) => {
-  const { placeholder, type, rightIcon, className } = props;
+  const { placeholder, type, rightIcon, className,disabled } = props;
   const [field, meta] = useField(props);
   return (
     <div className="flex flex-col">
@@ -10,6 +10,7 @@ const TextInput = (props) => {
         {...field}
         {...props}
         type={type}
+        disabled={disabled}
         className={` border rounded-lg placeholder-placeholderColor font-pop text-xs ${className ? className : 'w-72 p-4  border-secondary'}`}
         placeholder={placeholder}
       />

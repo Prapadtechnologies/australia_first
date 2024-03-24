@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { BASE_URL } from "../../Constants";
+import { BASE_URL } from "../../Constants/Api";
 
 const postHeaders = () => {
   const accessToken = localStorage.getItem("accessToken");

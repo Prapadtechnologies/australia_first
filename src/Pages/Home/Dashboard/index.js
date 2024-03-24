@@ -132,58 +132,67 @@ const data8 = [
   },
 ];
 
-const Home = () => {
-  const Table = (props) => {
-    const { data } = props;
-    return (
-      <div className="flex flex-row">
-        {data.map((item, index) => (
-          <div
-            className={`flex flex-col ${
-              index % 3 === 0 ? "border" : "border-r border-b border-t"
-            }   rounded-lg`}
-            key={item.id}
-          >
-            <div className="bg-secondary py-2 rounded-t w-28">
-              <p className="text-white font-pop text-[11px] text-center">
-                {item.title}
+
+export const Table = (props) => {
+  const { data } = props;
+  return (
+    <div className="flex flex-row">
+      {data.map((item, index) => (
+        <div
+          className={`flex flex-col ${
+            index % 3 === 0 ? "border" : "border-r border-b border-t"
+          }   rounded-lg`}
+          key={item.id}
+        >
+          <div className="bg-secondary py-2 rounded-t-md px-3">
+            <p className="text-white font-pop text-[11px] text-center">
+              {item.title}
+            </p>
+          </div>
+          {item.tData.map((item1, index1) => (
+            <div
+              className={`px-6 py-2 ${
+                index1 === item.tData.length - 1 ? "rounded-b" : "border-b"
+              } border-secondary`}
+            >
+              <p className="text-secondary font-pop text-[11px] text-center">
+                {item1}
               </p>
             </div>
-            {item.tData.map((item1, index1) => (
-              <div
-                className={`px-6 py-2 ${
-                  index1 === item.tData.length - 1 ? "rounded-b" : "border-b"
-                } border-secondary`}
-              >
-                <p className="text-secondary font-pop text-[11px] text-center">
-                  {item1}
-                </p>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-    );
-  };
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
 
-  const Sizes = () => {
-    return (
-      <div className="flex flex-col gap-2 justify-center align-center">
-        <div className="bg-secondary px-2 py-1 border-b border-secondary rounded-md">
-          <p className="text-white font-pop text-xs text-center">XS</p>
-        </div>
-        <div className="bg-secondary px-2 py-1 border-b border-secondary rounded-md">
-          <p className="text-white font-pop text-xs text-center">XS</p>
-        </div>
-        <div className="bg-secondary px-2 py-1 border-b border-secondary rounded-md">
-          <p className="text-white font-pop text-xs text-center">XS</p>
-        </div>
-        <div className="bg-secondary px-2 py-1 border-b border-secondary rounded-md">
-          <p className="text-white font-pop text-xs text-center">XS</p>
-        </div>
+
+
+export const Sizes = () => {
+  return (
+    <div className="flex flex-col gap-2 justify-center align-center">
+      <div className="bg-secondary px-2 py-1 border-b border-secondary rounded-md">
+        <p className="text-white font-pop text-xs text-center">xs</p>
       </div>
-    );
-  };
+      <div className="bg-secondary px-2 py-1 border-b border-secondary rounded-md">
+        <p className="text-white font-pop text-xs text-center">xs</p>
+      </div>
+      <div className="bg-secondary px-2 py-1 border-b border-secondary rounded-md">
+        <p className="text-white font-pop text-xs text-center">xs</p>
+      </div>
+      <div className="bg-secondary px-2 py-1 border-b border-secondary rounded-md">
+        <p className="text-white font-pop text-xs text-center">xs</p>
+      </div>
+    </div>
+  );
+};
+
+
+
+const Home = () => {
+  
+
+  
 
   return (
     <>
@@ -231,13 +240,13 @@ const Home = () => {
                 className="w-2 h-2 object-contain"
               />
             </div>
-            <div className="flex flex-row justify-center items-center bg-primary w-32	h-8	rounded-lg gap-2">
+            <div className="flex flex-row justify-center items-center bg-primary px-3 	h-8	rounded-lg gap-2">
               <p className="font-pop text-white text-xs">Capacity</p>
               <p className="font-pop text-white text-xs">|</p>
               <p className="font-pop text-white text-xs">200</p>
             </div>
 
-            <div className="flex flex-row justify-center items-center bg-primary w-40	h-8	rounded-lg gap-2">
+            <div className="flex flex-row justify-center items-center bg-primary  px-3	h-8	rounded-lg gap-2">
               <p className="font-pop text-white text-xs">Sales Tax Included</p>
               <img
                 src="/chevron_down_white.png"
@@ -245,7 +254,7 @@ const Home = () => {
               />
             </div>
             <div className="flex flex-row">
-              <div className="flex flex-row justify-center items-center bg-primary w-24	h-8	rounded-l-lg gap-2">
+              <div className="flex flex-row justify-center items-center bg-primary px-3	h-8	rounded-l-lg gap-2">
                 <p className="font-pop text-white text-xs">Tax Fee %</p>
               </div>
               <div className="flex flex-row justify-center items-center bg-white border border-primary w-16	h-8	rounded-none gap-2">
@@ -260,7 +269,7 @@ const Home = () => {
             </div>
 
             <div className="flex flex-row">
-              <div className="flex flex-row justify-center items-center bg-primary w-24	h-8	rounded-l-lg gap-2">
+              <div className="flex flex-row justify-center items-center bg-primary px-3	h-8	rounded-l-lg gap-2">
                 <p className="font-pop text-white text-xs">Venue Fee %</p>
               </div>
               <div className="flex flex-row justify-center items-center bg-white border border-primary w-16	h-8	rounded-none gap-2">
