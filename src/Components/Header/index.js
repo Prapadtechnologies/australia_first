@@ -80,7 +80,7 @@ const Header = (props) => {
           <div className="flex justify-center items-center bg-secondary h-10 w-10 rounded-lg">
             <img src="/hand.png" className="w-5 h-5 object-contain" />
           </div>
-          <div className="border border-left border-white" />
+          {/* <div className="border border-left border-white" />
           <div className="flex justify-center items-center bg-secondary h-10 w-10 rounded-lg">
             <img src={AppImages.user} className="w-5 h-5 object-contain" />
           </div>
@@ -105,7 +105,7 @@ const Header = (props) => {
           </div>
           <div className="flex justify-center items-center bg-secondary h-10 w-10 rounded-lg">
             <img src={AppImages.clock} className="w-5 h-5 object-contain" />
-          </div>
+          </div> */}
         </div>
 
         <div className="flex flex-row gap-12 justify-center items-center">
@@ -116,7 +116,9 @@ const Header = (props) => {
             />
             <p className="font-pop text-white text-sm">Activate Register</p>
           </div>
-
+          <div className="flex justify-center items-center bg-secondary h-10 w-10 rounded-lg">
+            <img src={AppImages.settings} className="w-5 h-5 object-contain" />
+          </div>
           <div
             className="flex flex-row gap-3 justify-center items-center"
             onClick={authContext.doLogout}
