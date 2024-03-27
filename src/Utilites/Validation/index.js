@@ -44,5 +44,5 @@ export const LoginSchema = Yup.object().shape({
     end_date: Yup.date().required('End date is required'),
     tour_name: Yup.string().required('Tour name is required'),
     tour_type: Yup.string().required('Tour type is required'),
-    report_currency: Yup.string().required('Report currency is required')
+    report_currency: Yup.string().required('Select your currency')
   })

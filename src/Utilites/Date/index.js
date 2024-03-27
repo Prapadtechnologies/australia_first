@@ -5,5 +5,5 @@ export const convertToDbFormat = (date) => {
 }
 
 export const covertToReadableFormat = (date) => {
-    return `${moment(date).format('DD')} ${moment(date).format('MMM')} ${moment(date).format('YYYY')}`;
+    return `${moment(date).format('DD')} ${moment(date).format('MMM')} ${moment(date).format('D')}`;
 }

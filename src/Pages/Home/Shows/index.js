@@ -11,19 +11,21 @@ import { AppData } from "../../../Constants/AppData";
 import { useParams } from "react-router-dom";
 import LoadingOverlay from "react-loading-overlay";
 import { BeatLoader } from "react-spinners";
+import NoData from "../../../Components/NoData";
+import { useNavigate } from "react-router-dom";
 
 
 const ShowItem = ({ item }) => {
   return (
-    <div className="border-2 border-primary rounded-lg p-4 mb-8 shadow-lg">
-      <div className="flex items-center flex-row justify-between">
-        <div className="flex flex-col">
-          <div className="border border-primary rounded-lg w-24 h-26">
-            <div className="flex flex-col gap-2 py-2">
+    <div className="border border-secondary rounded-xl p-4 my-6 shadow-xl">
+      <div className="flex items-center  justify-between flex-row gap-3">
+        <div className="flex flex-col w-1/12 h-44">
+          <div className="border border-secondary rounded-lg">
+            <div className="flex flex-col gap-2">
               <p className="font-pop text-xs text-primary text-center">
                 {moment(item.start_date).format("MMMM")}
               </p>
-              <div className="bg-primary py-2">
+              <div className="bg-primary">
                 <p className="font-pop text-lg text-white  font-medium text-center">
                   {moment(item.start_date).format("DD")}
                 </p>
@@ -36,7 +38,7 @@ const ShowItem = ({ item }) => {
               </p>
             </div>
           </div>
-          <div className=" flex flex-col justify-center items-center border border-primary rounded-lg w-24 h-14 mt-7">
+          <div className=" flex flex-col justify-center items-center border border-secondary rounded-lg w-24 h-14 mt-7">
             <p className="font-pop text-[10px] text-secondary  font-medium text-center">
               Ticket sales
             </p>
@@ -46,23 +48,23 @@ const ShowItem = ({ item }) => {
           </div>
         </div>
 
-        <div className="flex flex-row gap-3 border border-primary rounded-lg p-7">
-          <div className="flex flex-col gap-2">
-            <p className="font-bold text-sm text-primary font-pop">
+        <div className="flex 2xl:w-4/12 xl:w-7/12 lg:9/12 lg:w-6/12 h-44 flex-row border border-primary rounded-lg items-center justif-center gap-4  p-4">
+          <div className="flex flex-col gap-1">
+            <p className="font-medium 2xl:text-sm xl:text-xs lg:xs text-primary font-pop">
               {item.venue_name}
             </p>
             <p className="text-xs text-secondary font-pop">
               {item.venue_address}
             </p>
-            <div className="flex gap-8 items-center flex-row">
+            <div className="flex gap-4 items-center flex-row">
               <div>
-                <p className="text-xs text-secondary py-1 font-pop">Capacity</p>
+                <p className="text-xs text-secondary font-pop">Capacity</p>
                 <p className="text-xs font-semibold text-primary font-pop">
                   {item.show_capacity}
                 </p>
               </div>
               <div>
-                <p className="text-xs text-secondary py-1 font-pop">
+                <p className="text-xs text-secondary font-pop">
                   No of Shows
                 </p>
                 <p className="text-xs font-semibold text-primary font-pop">
@@ -70,9 +72,9 @@ const ShowItem = ({ item }) => {
                 </p>
               </div>
             </div>
-            <div className="flex gap-8 items-center flex-row">
+            <div className="flex gap-4 items-center flex-row">
               <div>
-                <p className="text-xs text-secondary py-1 font-pop">
+                <p className="text-xs text-secondary  font-pop">
                   Apparel tax
                 </p>
                 <p className="text-xs font-semibold text-primary font-pop">
@@ -80,7 +82,7 @@ const ShowItem = ({ item }) => {
                 </p>
               </div>
               <div>
-                <p className="text-xs text-secondary py-1 font-pop">
+                <p className="text-xs text-secondary font-pop">
                   Musix tax
                 </p>
                 <p className="text-xs font-semibold text-primary font-pop">
@@ -88,7 +90,7 @@ const ShowItem = ({ item }) => {
                 </p>
               </div>
               <div>
-                <p className="text-xs text-secondary py-1 font-pop">
+                <p className="text-xs text-secondary  font-pop">
                   Other tax
                 </p>
                 <p className="text-xs font-semibold text-primary font-pop">
@@ -97,19 +99,19 @@ const ShowItem = ({ item }) => {
               </div>
             </div>
           </div>
-          <div className="border-l border-primary" />
-          <div className="flex flex-col gap-2">
-            <p className="font-bold text-sm text-primary font-pop">Hall Fee</p>
+          <div className="border-l h-32 border-secondary shadow-lg" />
+          <div className="flex flex-col gap-1">
+            <p className="font-medium 2xl:text-sm xl:text-xs text-primary font-pop">Hall Fee</p>
             <p className="text-xs text-secondary font-pop"></p>
             <div className="flex gap-8 items-center flex-row">
               <div>
-                <p className="text-xs text-secondary py-1 font-pop">Apparel</p>
+                <p className="text-xs text-secondary font-pop">Apparel</p>
                 <p className="text-xs font-semibold text-primary font-pop">
                   {item.fee_apparel}%
                 </p>
               </div>
               <div>
-                <p className="text-xs text-secondary py-1 font-pop">Other</p>
+                <p className="text-xs text-secondary font-pop">Other</p>
                 <p className="text-xs font-semibold text-primary font-pop">
                   {item.fee_others}%
                 </p>
@@ -117,7 +119,7 @@ const ShowItem = ({ item }) => {
             </div>
             <div className="flex gap-8 items-center flex-row">
               <div>
-                <p className="text-xs text-secondary py-1 font-pop">Music</p>
+                <p className="text-xs text-secondary  font-pop">Music</p>
                 <p className="text-xs font-semibold text-primary font-pop">
                   {item.fee_music}%
                 </p>
@@ -125,16 +127,16 @@ const ShowItem = ({ item }) => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex w-11/12 justify-center items-center">
           <textarea
-            className="border border-primary rounded-lg p-4 placeholder-secondary font-pop text-sm xl:w-[600px]"
+            className="border border-primary rounded-lg p-4 placeholder-secondary h-44 w-full font-pop text-sm"
             rows={8}
             placeholder="Notes . . ."
           >
             {item.note}
           </textarea>
         </div>
-        <div className="flex flex-col gap-4 border border-primary rounded-lg p-7">
+        <div className="flex flex-col h-44 gap-4 border border-primary rounded-lg p-6 justify-center">
           <div className="w-24 h-8 bg-primary flex justify-center items-center rounded-md">
             <p className="font-pop text-white text-xs">Edit</p>
           </div>
@@ -162,11 +164,18 @@ const Shows = () => {
   const [showsData, setShowsData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedShowStatus, setSelectedShowStatus] = useState("total");
-  const { tourId } = useParams();
+  const { tourId,status } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     setIsLoading(true)
     getVenueList();
   }, []);
+
+  useEffect(() => {
+    if(status){
+      setSelectedShowStatus(status)
+    }
+  },[status])
 
   useEffect(() => {
     getShowsList(tourId, selectedShowStatus);
@@ -184,7 +193,7 @@ const Shows = () => {
     if (resp.status) {
       setIsLoading(false)
       setShowsData(resp.data);
-    }else{
+    } else {
       setIsLoading(false)
     }
   };
@@ -219,31 +228,30 @@ const Shows = () => {
     const resp = await apiCall(ApiUrl.addShow, payload);
     if (resp.status) {
       closeModal();
-      getShowsList(tourId,"total");
+      getShowsList(tourId, 'total');
       toast.success("Show added successfully");
     } else {
       toast.error("Show not added. Please try later");
     }
-    console.log(resp);
   };
 
   const handleSetShowsStatus = (item) => {
     setIsLoading(true);
-    setSelectedShowStatus(item.key);
+    navigate('/shows/'+tourId+'/'+item.key);
   };
 
   return (
-    <LoadingOverlay active={isLoading} classNamePrefix='customLoader' spinner={<BeatLoader color="white"  size={20} />}>
-      <CustomModal handleModalClose={closeModal} modalProps={modalProps}>
+    <LoadingOverlay active={isLoading} classNamePrefix='customLoader' spinner={<BeatLoader color="white" size={20} />}>
+      <CustomModal handleModalClose={closeModal} modalProps={modalProps} className={`overflow-y-scroll w-full rounded-2xl shadow-xl`}>
         <ShowsForm
           handleModalClose={closeModal}
           venueList={venueList}
           handleAddShow={addNewShow}
         />
       </CustomModal>
-      <div className="bg-grey px-7 py-3">
-        <div className="flex flex-row justify-between">
-          <div className="flex flex-row gap-8">
+      <div className="bg-grey px-7">
+        <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-row gap-8 my-4">
             {showsData &&
               showsData.shows_status.map((item) => (
                 <div
@@ -252,22 +260,19 @@ const Shows = () => {
                   onClick={() => handleSetShowsStatus(item)}
                 >
                   <div
-                    className={`flex justify-center items-center ${
-                      selectedShowStatus === item.key ? "border-1" : "border"
-                    } border border-secondary h-7 w-7 rounded-lg`}
+                    className={`flex justify-center items-center ${selectedShowStatus === item.key ? "border-1" : "border"
+                      } border border-secondary h-7 w-7 rounded-lg`}
                   >
                     <p
-                      className={`font-pop text-xs text-secondary ${
-                        selectedShowStatus === item.key && "font-semibold"
-                      }`}
+                      className={`font-pop text-xs text-secondary ${selectedShowStatus === item.key && "font-semibold"
+                        }`}
                     >
                       {item.count}
                     </p>
                   </div>
                   <p
-                    className={`font-pop text-xs text-primary ${
-                      selectedShowStatus === item.key && "font-semibold"
-                    }`}
+                    className={`font-pop text-xs text-primary ${selectedShowStatus === item.key && "font-semibold"
+                      }`}
                   >
                     {item.label}
                   </p>
@@ -284,10 +289,13 @@ const Shows = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white px-7 py-4">
+      <div className="bg-white px-7 my-4">
         {showsData &&
           showsData.list.length > 0 &&
           showsData.list.map((item) => <ShowItem item={item} />)}
+        {
+          showsData && showsData.list.length === 0 && <NoData description={'No data found.Please check back later'} />
+        }
       </div>
     </LoadingOverlay>
   );

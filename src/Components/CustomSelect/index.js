@@ -29,7 +29,7 @@ const CustomSelect = ({
   };
 
   const controlStyles = {
-    base: `rounded-lg border   hover:cursor-pointer font-pop text-xs  ${className}`,
+    base: `rounded-lg border   hover:cursor-pointer font-pop text-xs ${className}`,
   };
   const placeholderStyles = "text-placeholderColor pl-1 font-pop text-xs";
   const selectInputStyles = "font-pop text-xs";
@@ -79,6 +79,9 @@ const CustomSelect = ({
       options={options}
       isMulti={isMulti}
       isDisabled={isDisabled}
+      menuPlacement={'auto'}
+      menuShouldScrollIntoView={false} 
+      maxMenuHeight={150}
     />
   );
 };

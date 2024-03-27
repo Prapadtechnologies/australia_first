@@ -5,7 +5,7 @@ const TextInput = (props) => {
   const { placeholder, type, rightIcon, className,disabled } = props;
   const [field, meta] = useField(props);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-16">
       <input
         {...field}
         {...props}
@@ -21,7 +21,7 @@ const TextInput = (props) => {
       )}
 
       {meta.touched && meta.error ? (
-        <span className="text-danger font-pop text-xs my-2">{meta.error}</span>
+        <span className="text-danger font-pop text-xs my-1">{meta.error}</span>
       ) : null}
     </div>
   );

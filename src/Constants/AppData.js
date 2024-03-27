@@ -8,7 +8,7 @@ export  const AppData = {
         {
             id : 2,
             title: 'Shows',
-            path: '/shows/'+localStorage.getItem('initalTourId')
+            path: '/shows/'+ localStorage.getItem('initalTourId')
         },
         {
             id : 3,
@@ -57,3 +57,106 @@ export const TableHeaderData = {
         },
     ]
 }
+
+
+export const showsMenu = [
+    {
+        id: 13,
+        title: 'Dashboard',
+        subMenu: [
+            {
+                id: 14,
+                title: 'Tour Revenue',
+                path: ''
+            },
+            {
+                id: 15,
+                title: 'Dollar per head',
+                path: ''
+            },
+            
+        ]
+    },
+    {
+        id: 13,
+        title: 'Shows',
+        subMenu: [
+            {
+                id: 16,
+                title: 'Total Shows',
+                path: 'shows/'+localStorage.getItem('initalTourId')+'/'+'total'
+            },
+            {
+                id: 17,
+                title: 'Shows left',
+                path: 'shows/'+localStorage.getItem('initalTourId')+'/'+'left'
+            },
+            {
+                id: 18,
+                title: 'Cancelled',
+                path: 'shows/'+localStorage.getItem('initalTourId')+'/'+'cancelled'
+            },
+            {
+                id: 19,
+                title: 'Completed',
+                path: 'shows/'+localStorage.getItem('initalTourId')+'/'+'completed'
+            },
+        ]
+    },
+    {
+        id: 20,
+        title: 'Inventory',
+        subMenu: [
+            {
+                id: 21,
+                title: 'Trailers',
+                path: ''
+            },
+            {
+                id: 22,
+                title: 'View Shipments',
+                path: ''
+            },
+            {
+                id: 23,
+                title: 'Reconcile',
+                path: ''
+            }
+        ]
+    },
+
+    {
+        id: 24,
+        title: 'Accounting',
+        subMenu: [
+            {
+                id: 25,
+                title: 'Cash control',
+                path: ''
+            },
+            {
+                id: 26,
+                title: 'Expenses',
+                path: ''
+            }
+        ]
+    },
+
+    {
+        id: 27,
+        title: 'Merch IQ',
+        subMenu: [
+            {
+                id: 28,
+                title: 'Tour Forecast',
+                path: ''
+            },
+            {
+                id: 29,
+                title: 'Tour planning',
+                path: ''
+            }
+        ]
+    },
+
+]

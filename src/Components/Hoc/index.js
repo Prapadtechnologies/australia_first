@@ -6,11 +6,11 @@ const Hoc = (WrapperComponent,props) => {
   const { secondaryMenu,page } = props;
   return function () {
     return (
-      <div>
+      <>
         <Header currentPage={page} />
-        <SecondaryHeader currentPage={page} secondaryMenu={secondaryMenu} />
+          <SecondaryHeader currentPage={page} secondaryMenu={secondaryMenu} />
         <WrapperComponent />
-      </div>
+      </>
     );
   };
 };

@@ -115,6 +115,7 @@ const Tours = () => {
   const [addToursData, setAddToursData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedTourStatus, setSelectedTourStatus] = useState("upcoming");
+  const [expandAddTourModal, setAddExpandModal] = useState(false);
   const navigate = useNavigate();
   const [modalProps, setModalProps] = useState({
     visible: false,
@@ -196,11 +197,12 @@ const Tours = () => {
 
   return (
     <LoadingOverlay active={isLoading} classNamePrefix='customLoader' spinner={<BeatLoader color="white"  size={20} />}>
-      <CustomModal handleModalClose={closeModal} modalProps={modalProps} className="h-[550px]">
+      <CustomModal handleModalClose={closeModal} modalProps={modalProps} className={`overflow-y-scroll w-full ${expandAddTourModal && 'h-[600px]' } rounded-2xl shadow-xl`}>
         <ToursForm
           handleModalClose={closeModal}
           handleAddTour={addNewTour}
           addToursData={addToursData}
+          handleSetAddExpandModal={setAddExpandModal}
         />
       </CustomModal>
       <div className="bg-grey px-7 py-3">

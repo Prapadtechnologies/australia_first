@@ -6,7 +6,7 @@ import { root } from "postcss";
 const CustomModal = (props) => {
     const { handleModalClose, modalProps, className  } = props;
     return(
-    <Modal classNames={{ modal:`customModal ${className}`}} open={modalProps.visible} onClose={handleModalClose} center showCloseIcon={false}>
+    <Modal classNames={{ modal:`customModal ${className}`}} open={modalProps.visible} onClose={handleModalClose} center={false} showCloseIcon={false}>
         {props.children}
     </Modal>
     )
